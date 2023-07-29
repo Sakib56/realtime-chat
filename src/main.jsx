@@ -9,6 +9,9 @@ import Main from './Layout/Main.jsx';
 import Login from './Pages/Login.jsx';
 import Resister from './Pages/Resister';
 import AuthProvider from './Provider/AuthPorvider';
+import Home from './Pages/Home';
+import ChatRoom from './Pages/ChatRoom';
+import PrivateRoute from './routes/PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,11 +19,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/login',
         element: <Login></Login>
       },
       {
         path: '/resister',
         element: <Resister></Resister>
+      },
+      {
+        path: '/chatroom',
+        element: <PrivateRoute><ChatRoom></ChatRoom></PrivateRoute>
       }
     ]
   },
